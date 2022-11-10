@@ -14,7 +14,7 @@ const Blog = () => {
           <p>
             NoSQL is a class of DBMs that are non-relational and generally do
             not use SQL.
-          </p>
+          </p> 
         </div>
       </div>
       <div className="card w-2/3 bg-sky-100 shadow-xl">
