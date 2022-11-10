@@ -2,6 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/login.webp";
 const Login = () => {
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email);
+    console.log(password);
+  };
   return (
     <div className="hero w-full my-20">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
@@ -10,7 +18,7 @@ const Login = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl py-20 bg-base-100">
           <h1 className="text-4xl text-center font-bold">Login</h1>
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
