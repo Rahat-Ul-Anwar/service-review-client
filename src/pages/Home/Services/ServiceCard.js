@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceCard = ({ service }) => {
   console.log(service);
-  const {title, img, price, description } = service;
+  const { _id, title, img, price, description } = service;
 
   return (
     <div>
       <div className="card w-96 bg-base-100 shadow-xl">
         <figure>
-          <img src={img} alt="" className="p-4 w-96 h-60"/>
+          <img src={img} alt="" className="p-4 w-96 h-60" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
@@ -21,11 +22,11 @@ const ServiceCard = ({ service }) => {
           </p>
           <h3 className="text-xl font-semibold"> Price : ${price}</h3>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">See More</button>
+            <Link to={`/services/${_id}`}><button className="btn btn-primary">See More</button></Link>
+           
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
