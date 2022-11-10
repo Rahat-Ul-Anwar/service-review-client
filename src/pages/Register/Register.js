@@ -1,20 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/login.webp";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-    const handleSignUP = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const email = form.email.value;
-        const password = form.password.value;
-        console.log(name);
-        console.log(email);
-        console.log(password);
-    
-       
-      };
+  const { createUser } = useContext(AuthContext);
+
+  const handleSignUP = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name);
+    console.log(email);
+    console.log(password);
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="hero w-full my-20">
       <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
@@ -23,7 +31,7 @@ const Register = () => {
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl py-20 bg-base-100">
           <h1 className="text-4xl text-center font-bold">Sign Up</h1>
-                  <form onSubmit={handleSignUP}  className="card-body">
+          <form onSubmit={handleSignUP} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>

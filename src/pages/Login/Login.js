@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import img from "../../assets/login.webp";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
+  const { logIn, googleSignIn } = useContext(AuthContext);
+
+  const provider = new GoogleAuthProvider();
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -9,6 +14,21 @@ const Login = () => {
     const password = form.password.value;
     console.log(email);
     console.log(password);
+
+    logIn(email, password)
+      .then((result) => {
+        const user = result.user;
+          console.log(user);
+          alert('successfully log in');
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const signInGoogle = () => {
+    googleSignIn(provider).then((result) => {
+      const user = result.user;
+      console.log(user);
+    }).catch(error => console.error(error));
   };
   return (
     <div className="hero w-full my-20">
@@ -56,6 +76,7 @@ const Login = () => {
                 className="btn btn-secondary"
                 type="submit"
                 value="Continue with Google"
+                onClick={signInGoogle}
               />
             </div>
           </form>
