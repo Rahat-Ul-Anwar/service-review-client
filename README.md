@@ -2,16 +2,14 @@
 
  Live site link : https://service-review-assignmen-c7d10.web.app/
 
-## Available Scripts
+## website details
 
-In the project directory, you can run:
+* Its a travelling website where a user see their service where he/she can go .they also add review.
 
-### `npm start`
+* In this website for front end  i used React, React-Router, Tailwind CSS, Daisy UI, authentication system.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* For backend i used Node, MongoDB and Express.js.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
+* Frontend hosting at Firebase.
+* Backend hosting at Vaercel.
 
