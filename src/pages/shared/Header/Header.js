@@ -48,7 +48,7 @@ const Header = () => {
             </div>
             <Link className="btn btn-ghost normal-case text-xl">
                       
-              <h3>Review</h3>
+              <h3 className='text-3xl font-bold text-pink-500 rounded-lg'>Earth Trekkers</h3>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
