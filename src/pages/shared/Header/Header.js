@@ -20,8 +20,13 @@ const Header = () => {
 
           { user?.email ?
             <li onClick={handleSignOut} className='font-semibold'><Link to='/login'>Log Out</Link></li>
-             :
-          <li className='font-semibold'><Link to='/login'>Login</Link></li>
+            :
+            <>
+              <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
+              <li className='font-semibold'><Link to='/login'>Login</Link></li>
+            </>  
+
+     
           }
           
 
@@ -53,7 +58,9 @@ const Header = () => {
             </ul>
           </div>
           <div className="navbar-end">
-          <button className="btn btn-outline btn-ghost">Get Started</button>
+            {
+               (user?.email) &&  <Link to='/register'><button className="btn btn-outline btn-ghost">Sign Up</button></Link>
+          }
           </div>
         </div>
     );
