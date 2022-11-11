@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
             {
                 path: '/allService',
                 loader: () => {
-                    return fetch('http://localhost:5000/allServices');
+                    return fetch('https://b6a11-service-review-server-side-rahat-ul-anwar.vercel.app/allServices');
                  },
                 element: <AllService></AllService>
             },
@@ -45,7 +45,7 @@ export const router = createBrowserRouter([
 
                 path: '/services/:id',
                 loader: ({params}) => {
-                    return fetch(`http://localhost:5000/services/${params.id}`)
+                    return fetch(`https://b6a11-service-review-server-side-rahat-ul-anwar.vercel.app/services/${params.id}`)
                 },
                 element: <ServiceDetails></ServiceDetails>
             }
