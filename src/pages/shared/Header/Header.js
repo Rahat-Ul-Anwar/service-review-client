@@ -18,15 +18,17 @@ const Header = () => {
           <li className='font-semibold'><Link to='/blog'>Blog</Link></li> 
 
 
-          { user?.email ?
-            <li onClick={handleSignOut} className='font-semibold'><Link to='/login'>Log Out</Link></li>
+          {user?.email ?
+             <>
+             <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
+             <li onClick={handleSignOut} className='font-semibold'><Link to='/login'>Log Out</Link></li>
+      
+           </>  
+          
             :
-            <>
-              <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
-              <li className='font-semibold'><Link to='/login'>Login</Link></li>
-            </>  
+           
 
-     
+           <li className='font-semibold'><Link to='/login'>Login</Link></li>
           }
           
 
